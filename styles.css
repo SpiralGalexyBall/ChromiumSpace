@@ -1,0 +1,19 @@
+body{
+    background-color: silver;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
+form input {
+    background: none;
+    font-family: 'Raleway', sans-serif;
+    padding: 0px 17px;
+    height: 48px;
+    border: 1px solid #110d0d;
+    color: var(--text-color);
+    border-radius: 10px;
+    outline: none;
+    width: 350px;
+    margin-top: 5px;
+    border-radius: 15px;
+    color: #000000;
+}

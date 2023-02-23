@@ -1,6 +1,30 @@
-<p align="center"><img src="https://raw.githubusercontent.com/titaniumnetwork-dev/ultraviolet-static/main/uv.png" height="200">
-</p>
+# ultraviolet-scripts
+Core Ultraviolet scripts
 
-<h1 align="center">Ultraviolet-Node</h1>
-https://bit.ly/3rZNcgZ
-<p align="center">The deployable version of Ultraviolet, a highly sophisticated proxy used for evading internet censorship or accessing websites in a controlled sandbox using the power of service-workers and more!<br><br></p>
+# Configuration
+Configure Ultraviolet for both client-hooking & service worker in `uv.config.js`
+```javascript
+self.__uv$config = {
+    bare: '/bare/',
+    prefix: '/service/',
+    encodeUrl: Ultraviolet.codec.xor.encode,
+    decodeUrl: Ultraviolet.codec.xor.decode,
+    handler: '/uv.handler.js',
+    bundle: '/uv.bundle.js',
+    config: '/uv.config.js',
+};
+```
+
+
+# Example Usage
+```javascript
+importScripts('/PATHTOSCRIPTS/uv.sw.js');
+
+const sw = new UVServiceWorker();
+
+self.addEventListener('fetch', event =>
+    event.respondWith(
+        sw.fetch(event)
+    )
+);
+```
